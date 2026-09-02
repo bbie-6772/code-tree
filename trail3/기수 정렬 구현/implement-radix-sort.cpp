@@ -18,8 +18,9 @@ int main() {
     // 현재 진행중인 벡터 값 초기화
     vector<int> current(arr, arr + n);
     // 일의 자리부터 첫번째(k) 자리까지 반복하도록 설계
+    // 탈출 조건 = 자릿수 k가 가장 큰 값의 자릿수보다 클 때
     int k = 1;
-    while(true)
+    while(maxValue / k != 0)
     {
         vector<vector<int>> digits(10, vector<int>());
 
@@ -27,12 +28,6 @@ int main() {
         {
             int number = (current[i] / k) % 10;
             digits[number].push_back(current[i]);
-        }
-
-        // 탈출 조건 = 자릿수 k가 가장 큰 값의 자릿수보다 클 때
-        if (maxValue / k == 0)
-        {
-            break;
         }
 
         // 이전 정렬값 초기화
